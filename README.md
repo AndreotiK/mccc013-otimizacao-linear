@@ -6,7 +6,6 @@ Repositório com modelos de Programação Linear desenvolvidos na disciplina, us
 - `aulas/`: modelos por aula
 - `lista1/`: exercícios da lista 1
 - `exemplos/`: exemplos diversos
-- `dados/`: arquivos de dados
 
 ## Como resolver
 Instale o GLPK e rode:
