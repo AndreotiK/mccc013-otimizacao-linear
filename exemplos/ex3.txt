@@ -1,0 +1,23 @@
+var x1 >=0;
+var x2 >=0;
+var x3 >=0;
+var x4 >=0;
+var x5 >=0;
+
+maximize z: 60*x1 + 40*x2 +30*x3 + 30*x4 + 15*x5;
+
+s.t. a:     x1 +     x2 + x3  + x4     + x5 <= 7;
+s.t. b: 0.3*x1 + 1.7*x2       + 1.4*x4      <= 3;
+s.t. c:   4*x1 +   2*x2 +2*x3 + 2*x4   + x5 <= 8;
+s.t. d:     x1                              <=1.8;
+s.t. e:                    x3               <=0.3;
+s.t. f:     x1 +     x2 +  x3               <=3.8;
+s.t. g:                           x4   + x5 <=3.2;
+s.t. h:     x2                              >=0.5;
+s.t. i:                           x4        >=0.5;
+s.t. j:                                  x5 >=0.4;
+
+
+solve;
+
+display x1, x2, x3, x4, x5, z;

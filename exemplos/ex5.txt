@@ -1,0 +1,44 @@
+# Conjuntos
+set F;
+set C;
+
+# Parametros
+param c {i in F, j in C};
+param a {i in F};
+param b {j in C};
+
+# Variaveis
+var x {i in F, j in C} >= 0;
+
+# Objetivo
+minimize z: sum{ i in F, j in C} x[i,j] * c[i,j];
+
+# Restricoes
+s.t. dispo  { i in F }: sum{ j in C } x[i,j] <= a[i];
+s.t. demanda{ j in C }: sum{ i in F } x[i,j]  = b[j];
+
+solve;
+
+printf{ i in F, j in C}: 'x[%s,%s] = %f\n',i,j,x[i,j];
+display z;
+
+data; 
+
+set F := F1 F2;
+set C := C1 C2 C3;
+
+param c : C1 C2 C3 :=
+    F1 15 16 21
+    F2 15  7 17;
+
+param a := 
+    F1 250
+    F2 235;
+
+param b :=
+    C1 75 
+    C2 240
+    C3 70;
+
+end;
+

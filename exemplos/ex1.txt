@@ -1,0 +1,14 @@
+
+var x1 >=0; # fosforos longos (x 100 mil)
+var x2 >=0; # fosforos curtos (x 100 mil)
+
+maximize z: 3*x1 + 2*x2;
+
+s.t. r1:   x1 + x2 <= 9;   #max. maquina
+s.t. r2: 3*x1 + x2 <= 18;  #max. madeira
+s.t. r3:   x1      <= 7;   #max. embal. longas
+s.t. r4:        x2 <= 6;   #max. embal. curtas
+
+solve;
+display x1, x2, z;
+

@@ -1,0 +1,59 @@
+# Conjuntos
+set Prod;
+set Maq;
+
+# Parametros
+param C   { i in Prod, j in Maq }; 
+param T   { i in Prod, j in Maq }; 
+param num  {i in Prod}; 
+param temp {j in Maq}; 
+
+# Variaveis
+var x {i in Prod, j in Maq} >= 0;
+
+# Objetivo
+minimize z: sum{j in Maq} sum{ i in Prod } C[i,j] * x[i,j];
+
+# Restrições
+s.t. q{i in Prod} : sum{j in Maq}  x[i,j] = num[i];
+s.t. t{j in Maq}  : sum{i in Prod} T[i,j]*x[i,j] <= temp[j];
+
+solve;
+
+for {i in Prod}
+{
+	printf '%s: ',i;
+	for {j in Maq}
+	{
+		printf ' %7.2f ', x[i,j];
+	}
+	printf '\n';
+}
+
+data;
+
+set Prod := p1 p2 p3;
+set Maq  := m1 m2 m3 m4;
+
+param num := 
+p1 3000
+p2 6000
+p3 4000;
+
+param temp := 
+m1 1500
+m2 1200
+m3 1500
+m4 2000;
+
+param C: m1  m2  m3  m4 :=
+      p1  4   4   5   7
+      p2  6   7   5   6
+      p3 12  10   8  11;
+
+param T:   m1   m2   m3   m4 :=
+     p1  0.30 0.25 0.20 0.20
+     p2  0.20 0.30 0.20 0.25
+     p3  0.80 0.60 0.60 0.50;
+
+end;
