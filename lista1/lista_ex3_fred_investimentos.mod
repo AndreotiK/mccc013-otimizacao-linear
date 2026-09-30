@@ -1,5 +1,4 @@
 /* Problema 3 - Investimento de Fred
-   Modelo GUSEK/MathProg
 */
 
 set ANOS := 1..5;
