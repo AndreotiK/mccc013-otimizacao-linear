@@ -199,23 +199,23 @@ $$
 O maior valor é
 
 $$
-z^* = 1,
+z^\ast = 1,
 $$
 
 atingido em
 
 $$
-(x_1^{*}, x_2^{*}) = (1, 0).
+(x_1^\ast, x_2^\ast) = (1, 0).
 $$
 
 Portanto, a solução ótima é
 
 $$
-\boxed{(x_1^{*}, x_2^{*}) = (1, 0)}
+\boxed{(x_1^\ast, x_2^\ast) = (1, 0)}
 $$
 
 com valor ótimo
 
 $$
-\boxed{z^* = 1}.
+\boxed{z^\ast = 1}.
 $$
